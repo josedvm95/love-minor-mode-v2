@@ -1,10 +1,10 @@
-;;; love-minor-mode.el --- Minor mode for working on LÖVE projects
+;;; love-minor-mode-v2.el --- Minor mode for working on LÖVE projects
 ;;
 ;; Copyright 2012--2017 Eric James Michael Ritz
 ;;
-;; Author: Eric James Michael Ritz
-;; URL: https://github.com/ejmr/love-minor-mode
-;; Version: 1.2
+;; Author: Jose A. del Val
+;; URL: https://github.com/josedvm95/love-minor-mode-v2
+;; Version: 1.3
 ;; Package-Requires: ((lua-mode "20130419"))
 ;;
 ;;
@@ -32,6 +32,8 @@
 ;; developing games using the `LÖVE' engine. This minor mode works in
 ;; conjunction with and requires `lua-mode'.
 ;;
+;; It is based on love-minor-mode by Eric James Michael Ritz.
+;;
 ;; Usage:
 ;;
 ;; Put this file in your Emacs lisp path (i.e. site-lisp) and add
@@ -44,7 +46,7 @@
 ;; the minor mode automatically if you visit a Lua buffer that
 ;; contains any built-in LÖVE names.
 ;;
-;; See the file 'README.markdown' for a description of the commands
+;; See the file 'README.md' for a description of the commands
 ;; that LÖVE minor mode provides.  If you do not have the file
 ;; available then you can see the key-bindings and their commands by
 ;; entering 'C-h f love-minor-mode'.
@@ -54,8 +56,8 @@
 
 (require 'lua-mode)
 
-(defconst love-minor-mode-version-number "1.2"
-  "The version number of the LÖVE minor mode.")
+(defconst love-minor-mode-version-number "1.3"
+  "The version number of the LÖVE minor mode v2.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -115,21 +117,51 @@
 (defconst love/built-in-names
   (regexp-opt
    ;; Built-in Callbacks
-   '("love.draw"
-     "love.focus"
-     "love.joystickpressed"
-     "love.joystickreleased"
-     "love.keypressed"
-     "love.keyreleased"
+   '(;; General
+     "love.displayrotated"
+     "love.draw"
+     "love.errorhandler"
      "love.load"
-     "love.mousepressed"
-     "love.mousereleased"
+     "love.lowmemory"
      "love.quit"
      "love.run"
+     "love.threaderror"
      "love.update"
+     ;; Window
+     "love.directorydropped"
+     "love.filedropped"
+     "love.focus"
+     "love.mousefocus"
+     "love.resize"
+     "love.visible"
+     ;; Keyboard
+     "love.keypressed"
+     "love.keyreleased"
+     "love.textedited"
+     "love.textinput"
+     ;; Mouse
+     "love.mousemoved"
+     "love.mousepressed"
+     "love.mousereleased"
+     "love.wheelmoved"
+     ;; Joystick
+     "love.gamepadaxis"
+     "love.gamepadpressed"
+     "love.gamepadreleased"
+     "love.joystickadded"
+     "love.joystickaxis"
+     "love.joystickhat"
+     "love.joystickpressed"
+     "love.joystickreleased"
+     "love.joystickremoved"
+     ;; Touch
+     "love.touchmoved"
+     "love.touchpressed"
+     "love.touchreleased"
 
      ;; Standard Modules
      "love.audio"
+     "love.data"
      "love.event"
      "love.filesystem"
      "love.font"
@@ -137,11 +169,16 @@
      "love.image"
      "love.joystick"
      "love.keyboard"
+     "love.math"
      "love.mouse"
      "love.physics"
      "love.sound"
+     "love.system"
      "love.thread"
-     "love.timer"))
+     "love.timer"
+     "love.touch"
+     "love.video"
+     "love.window"))
   "A regular expression matching built-in LÖVE callback functions
 and standard modules.")
 
