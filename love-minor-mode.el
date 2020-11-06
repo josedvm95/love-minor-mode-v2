@@ -230,7 +230,7 @@ end\n" name identity))
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defcustom love-wiki-url "http://love2d.org/wiki/Main_Page"
+(defcustom love-wiki-url "https://love2d.org/wiki/Main_Page"
   "URL for the official LÖVE wiki."
   :type 'string
   :group 'love)
