@@ -39,24 +39,24 @@
 ;; Put this file in your Emacs lisp path (i.e. site-lisp) and add
 ;; this to your `.emacs' file:
 ;;
-;;     (require 'love-minor-mode)
+;;     (require 'love-minor-mode-v2)
 ;;
 ;; If you are working on a LÖVE project then you can enable the minor
-;; mode with the command (love-minor-mode t).  Emacs will activate
+;; mode with the command (love-minor-mode-v2 t).  Emacs will activate
 ;; the minor mode automatically if you visit a Lua buffer that
 ;; contains any built-in LÖVE names.
 ;;
 ;; See the file 'README.md' for a description of the commands
 ;; that LÖVE minor mode provides.  If you do not have the file
 ;; available then you can see the key-bindings and their commands by
-;; entering 'C-h f love-minor-mode'.
+;; entering 'C-h f love-minor-mode-v2'.
 ;;
 ;;
 ;;; Code:
 
 (require 'lua-mode)
 
-(defconst love-minor-mode-version-number "1.3"
+(defconst love-minor-mode-v2-version-number "1.3"
   "The version number of the LÖVE minor mode v2.")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -65,7 +65,7 @@
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar love-minor-mode-map
+(defvar love-minor-mode-v2-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c C-o p") 'love/create-project-configuration)
     (define-key map (kbd "C-c C-o f") 'love/search-forums)
@@ -98,14 +98,14 @@
   :group 'lua)
 
 ;;;###autoload
-(define-minor-mode love-minor-mode
+(define-minor-mode love-minor-mode-v2
   "Toggles LÖVE minor mode.
 
-\\{love-minor-mode-map}"
+\\{love-minor-mode-v2-map}"
   :init-value nil
   :lighter " LÖVE"
   :group 'love
-  :keymap love-minor-mode-map)
+  :keymap love-minor-mode-v2-map)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
@@ -185,12 +185,12 @@ and standard modules.")
 ;;;###autoload
 (defun love/possibly-enable-mode ()
   "This function determines whether or not to automatically
-enable `love-minor-mode'.  If the current buffer contains any
+enable `love-minor-mode-v2'.  If the current buffer contains any
 LÖVE-specific functions then we enable the minor mode."
   (save-excursion
     (goto-char (point-min))
     (if (re-search-forward love/built-in-names nil t)
-        (love-minor-mode t))))
+        (love-minor-mode-v2 t))))
 
 ;;;###autoload
 (progn
