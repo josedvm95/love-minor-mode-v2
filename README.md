@@ -1,9 +1,12 @@
-love-minor-mode
-===============
+love-minor-mode-v2
+==================
 
 This project adds a minor mode for [GNU Emacs][emacs] that adds tools
 to help developing [games using the LÖVE engine][love].  This minor
 mode works in conjunction with and requires [lua-mode][luamode].
+
+It is a fork of [love-minor-mode][loveminormode], that has been
+unmantained for 3 years.
 
 
 
@@ -82,8 +85,7 @@ When reporting bugs for LÖVE minor mode please include the value of
 Contributors
 ============
 
-1. [Peter Vasil](https://github.com/ptrv)
-2. [JF](https://github.com/oofoe)
+1. [Jose A. del Val](https://github.com/josedvm95)
 
 
 
@@ -96,7 +98,7 @@ License
 
 [gpl]: http://www.gnu.org/copyleft/gpl.html
 [emacs]: http://www.gnu.org/software/emacs/
-[love]: http://love2d.org/
-[ewiki]: http://www.emacswiki.org/cgi-bin/wiki/
-[luamode]: http://immerrr.github.com/lua-mode/
+[love]: https://www.love2d.org/
+[luamode]: https://github.com/immerrr/lua-mode
 [forums]: https://love2d.org/forums/
+[loveminormode]: https://github.com/ejmr/love-minor-mode
