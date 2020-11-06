@@ -304,6 +304,6 @@ opens the results in the user's web browser."
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(provide 'love-minor-mode)
+(provide 'love-minor-mode-v2)
 
 ;;; love-minor-mode.el ends here
