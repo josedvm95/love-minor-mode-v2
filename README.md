@@ -78,7 +78,7 @@ Reporting Bugs
 ==============
 
 When reporting bugs for LÖVE minor mode please include the value of
-`love-minor-mode-version-number` in your bug report.
+`love-minor-mode-v2-version-number` in your bug report.
 
 
 
